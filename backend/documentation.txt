@@ -1,0 +1,132 @@
+Installing body-parser to parse/analyze CRUD requests from the frontend
+A middleware has control of the request and the response of an API
+When the frontend sends json objects, we need the backend to analyze it
+This is done by a library called body-parser
+
+--- Logging API Requests ---
+get, post, put requests from the frontend
+This is done by a library called morgan - used to log http requests coming from the frontend
+
+-- Storing the data into the database --
+Using Atlas
+Installing the mongoose library
+
+--- Read and Write data to the database using API ---
+Create a model in nodejs (aka collection in mongodb) with mongoose 
+This model will contain the columns (name, quantity, etc) needed for the product
+It is called schema in mongoose
+
+
+--- Analyzing the database ---
+- Products
+- Users
+- Category
+- Order: store the address with the order
+- Order Items
+
+
+--- Arranging folders and files ---
+Create a models folder to store models in a file called product
+Create a routers folder to store api routes 
+
+
+--- Enable CORS ---
+
+--- Products and Categories ---
+Importing the product data to the frontend
+Ivolves creating, updating and deleting the Products
+ - Steps:
+ i. Create the product and category schemas (models)
+ ii. Categories REST API
+ iii. Post a new product to the database through the REST API
+ iv. Get list of products by REST API
+ v. Get product detail by ID
+ vi. Connecting the product to category i.e getting category details in a product
+ vii. Update a product REST API
+ viii. Delete a product REST API
+ ix. Get products count for statistics purposes
+ x. Filter the products based on categories
+
+
+--- Product model and schema ---
+ Each schema maps itself to a mongodb collection and defines the shape of the document within that collection
+ The link between the product and table of category is the id of the category
+
+ - Create category REST API to add and delete categories
+ - Get Categories and Category details
+ -Update category
+
+ - POST a new product REST API
+ - GET a product and products list REST API
+ - Show Category details in the product - Populate is used to connect tables together like in relational databases
+ - Update a product REST API
+ - Delete a product REST API and validate Id
+ - GET Features Products REST API
+ - Filtering and Getting products by category with the use of query parameters (?)
+
+
+--- Backend: Users & Authentication ---
+  User sign-in (id/password, google, etc) --> Authentication server (User authenticated, JWT created and returned to User) 
+  --> User passes JWT when making API calls --> Application Server (Application verifies and processes API call)
+  JWT - Json Web Token
+
+  Main Steps:
+  - Create users model and Schema
+  - POST/Register a new user REST API
+  - Hashing the user password
+  - Get user and list of users excluding password
+  - Update the user data with/without password
+  - Protecting the API i.e making sure the user cannot send any request without authentication
+  - Login a user REST API and creating a token
+  - Authentication error handling
+  - Add more secret user information to token i.e differnetiate between normal users and admin
+  - Get user count REST API
+
+
+  - Users model and schema
+  - Post new user REST API
+  - Hashing user password using bycrypt module:
+    So we would ask the user for a normal password and then encrypt that password
+  
+  - Get user and list of users excluding password
+  - Login a user REST API and creating a token:
+    email, id and password required. Then send them to the authentication server,
+    Then the authentication server responds with jwt, and authenticates the user,
+    enabling the user to make API calls.
+  - Protecting the API and authentication jwt middleware: 
+    making sure no one can use the APIs without a token i.e checking if the user is authenticated or not
+    expressjwt is used to secure APIs in the server
+
+    Going to Authorization in postman and choosing bearer-token,
+    this is how the user passes jwt token to the server for authentication
+    token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmIxMTdlY2E1YWM3MTFjZjZkMjMwNDUiLCJpYXQiOjE3MjI4ODY4NzMsImV4cCI6MTcyMjk3MzI3M30.tE1FknyxjqB7aoT0U8_H-ynPZiJRoCS4Yp-trxId1hY
+
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmIxMTdlY2E1YWM3MTFjZjZkMjMwNDUiLCJpYXQiOjE3MjI5MjMxNjMsImV4cCI6MTcyMzAwOTU2M30.Fd8MtJLuBlGKBuHcJQtUWJjFMwol80b4gcm_eUprlvA
+
+    We want the user to be able to access products apis without authentication
+
+  
+  - Add more secret user information to token
+  - Admins and Users - user role
+  - Get user count REST API: 
+    getting the number of users using the ecommerce site
+
+
+--- Backend: Orders ---
+  - The user is going to fill his cart and then go to checkout to submit an order
+  - This order will come with the address, shipping options and method of payment
+  - Also filling the billing data of previously logged in and purchasing users automatically.
+  - Linking products with orders using array of order Items.
+
+  -- Orders and Order-items model and scheme --
+    - Put order-items scheme in an array because we would be dealing with multiple order-items
+    - Array of Refs: In an order, we use the product id, not the product name to identify the product,
+      also user id, not user name. 
+      Every order-item has a qauntity and a product.
+    
+    - New order and create order items on posing new order
+    - Get order detail and populate products in order items and user data
+    - Update order status and delete it:
+      Making the order transferred from pending to processed, shipped and delivered.
+    - Delete order and also order-items
+    - Calculating total price of one order
