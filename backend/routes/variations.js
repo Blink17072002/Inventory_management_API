@@ -24,15 +24,15 @@ router.get('/:id', async(req, res) =>{
 
 // POST API
 router.post(`/`, async (req, res) =>{
-    let variaton = new Variation({
+    let variation = new Variation({
         name: req.body.name,
         size: req.body.size,
         color: req.body.color,
         brand: req.body.brand
     })
-    variaton = await variation.save()
+    variation = await variation.save()
 
-    if(!variaton)
+    if(!variation)
         return res.status(404).send('the category cannot be created')
     res.send(variation)
 })

@@ -135,15 +135,17 @@ Ivolves creating, updating and deleting the Products
 
 --- Hide Products from users (Admin feature) ----
 
+
+--- Example or Prototype ---
 User
 {
-  "name": "Richard Adams",
-  "email": "adamson101@gmail.com",
-  "password": "123richieadams407",
-  "phone": "09028756432",
+  "name": "Jacob Miles",
+  "email": "miles101@gmail.com",
+  "password": "##187jacobmiles",
+  "phone": "09028754893",
   "isAdmin": true,
   "street": "Adams Street",
-  "apartment": "Apartment 43",
+  "apartment": "Apartment 79",
   "zip": "302145",
   "city": "Lagos",
   "country": "Nigeria"
@@ -157,7 +159,7 @@ Categories
 
 Variations
 {
-  "name": "Variation 1",
+  "name": "Sneakers",
   "size": "42",
   "color": "blue",
   "brand": "Nike"
@@ -166,18 +168,18 @@ Variations
 Product
 {
   "name": "Shoe",
-  "description": "req.body.description",
-  "richDescription": "req.body.richDescription",
-  "image": "req.body.image",
-  "brand": "req.body.brand",
-  "price": "req.body.price",
-  "category": "req.body.category",
-  "varations": "req.body.varations",
-  "countInStock": "req.body.countInStock",
-  "rating": "req.body.rating",
-  "numReviews": "req.body.numReviews",
-  "isFeatured": "req.body.isFeatured",
-  "isVisible": "req.body.isVisible"
+  "description": "Great for athletes and daily users",
+  "richDescription": "Very good",
+  "image": "image",
+  "brand": "Jordans",
+  "price": "460",
+  "category": "Category 1",
+  "variations": "Sneakers",
+  "countInStock": "55",
+  "rating": "8",
+  "numReviews": "8.5",
+  "isFeatured": true,
+  "isVisible": true
 }
 
 Orders
@@ -212,3 +214,12 @@ Orders
   - users.js
   - variations.js
 - app.js
+
+
+- Firstly register user with above Prototype
+- Then login to get jwt token
+- create variation with post request
+- create category with post request
+- create product with post request
+- get product with get request
+- get variations with get request, etc.
