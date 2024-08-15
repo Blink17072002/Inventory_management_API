@@ -1,6 +1,6 @@
 # Sales Inventory Backend API
 
-This project is a backend API for a sales inventory system built with Node.js, Express, and MongoDB. It provides endpoints for managing products, categories, orders, users, and product variations in an e-commerce application. The system is designed for both admin and client usage.
+This project is a backend API for a shoe sales inventory system built with Node.js, Express, and MongoDB. It provides endpoints for managing products, categories, orders, users, and product variations in an e-commerce application. The system is designed for both admin and client usage.
 
 ## Features
 - **Category Management**: Create, update, delete, and list product categories.
@@ -41,7 +41,7 @@ This project is a backend API for a sales inventory system built with Node.js, E
 
 ```bash```
 git clone https://github.com/Blink17072002/Inventory_management_API.git
-cd backend
+
 
 2. Install the dependencies:
 ```bash```
