@@ -130,3 +130,85 @@ Ivolves creating, updating and deleting the Products
       Making the order transferred from pending to processed, shipped and delivered.
     - Delete order and also order-items
     - Calculating total price of one order
+    - Get total eshop sales using $sum
+    - Get user orders (history)
+
+--- Hide Products from users (Admin feature) ----
+
+User
+{
+  "name": "Richard Adams",
+  "email": "adamson101@gmail.com",
+  "password": "123richieadams407",
+  "phone": "09028756432",
+  "isAdmin": true,
+  "street": "Adams Street",
+  "apartment": "Apartment 43",
+  "zip": "302145",
+  "city": "Lagos",
+  "country": "Nigeria"
+},
+
+Categories
+{
+  "name": "Category 1",
+  "icon": "Icon 1",
+}
+
+Variations
+{
+  "name": "Variation 1",
+  "size": "42",
+  "color": "blue",
+  "brand": "Nike"
+}
+
+Product
+{
+  "name": "Shoe",
+  "description": "req.body.description",
+  "richDescription": "req.body.richDescription",
+  "image": "req.body.image",
+  "brand": "req.body.brand",
+  "price": "req.body.price",
+  "category": "req.body.category",
+  "varations": "req.body.varations",
+  "countInStock": "req.body.countInStock",
+  "rating": "req.body.rating",
+  "numReviews": "req.body.numReviews",
+  "isFeatured": "req.body.isFeatured",
+  "isVisible": "req.body.isVisible"
+}
+
+Orders
+{
+  "orderItems": "orderItemsIds",
+  "shippingAddress1": "req.body.shippingAddress1",
+  "shippingAddress2": "req.body.shippingAddress2",
+  "city": "req.body.city",
+  "zip": "req.body.zip",
+  "country": "req.body.country",
+  "phone": "req.body.phone",
+  "status": "req.body.status",
+  "totalPrice": "totalPrice",
+  "user": "req.body.user",
+  "dateOrdered": "req.body.dateOrdered",
+}
+
+- helpers
+  - error-handler.json
+  - jwt.js
+- models
+  - category.js
+  - order-item.js
+  - order.js
+  - product.js
+  - user.js
+  - variation.js
+- routes
+  - categories.js
+  - orders.js
+  - products.js
+  - users.js
+  - variations.js
+- app.js

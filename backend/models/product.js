@@ -35,11 +35,23 @@ const productSchema = mongoose.Schema({
         ref: 'Category',
         required: true
     },
+    variations: {
+        type: String,
+        default: ''
+    },
     countInStock: {
         type: Number,
         required: true,
         min: 0,
         max: 255
+    },
+    price: {
+        type: Number,
+        default: 0,
+        validator: function(value){
+            value >= 0
+        },
+        message: 'Price must be greater than zero'
     },
     numReviews: {
         type: Number,
@@ -56,7 +68,11 @@ const productSchema = mongoose.Schema({
     rating: {
         type: Number,
         default: false
-    }
+    },
+    isVisible: {
+        type: Boolean,
+        default: true
+    },
 })
 
 // to change _id to id i.e removing the underscore from it to make it more frontend friendly

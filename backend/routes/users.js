@@ -47,6 +47,28 @@ router.post('/', async(req, res) =>{
     res.send(user)
 })
 
+router.post('/register', async(req, res) =>{
+    let user = new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        passwordHash: bcrypt.hashSync(req.body.password, 10), // hash user password
+        phone: req.body.phone,
+        isAdmin: req.body.isAdmin,
+        street: req.body.street,
+        apartment: req.body.apartment,
+        zip: req.body.zip,
+        city: req.body.city,
+        country: req.body.country
+    })
+    user = await user.save()
+
+    if(!user){
+        return res.status(400).send('The user cannot be created.')
+    }
+    res.send(user)
+})
+
 // Login existing user
 router.post('/login', async(req, res) =>{
     const user = await User.findOne({email: req.body.email})//.select('-passwordHash')
@@ -87,10 +109,10 @@ router.get(`/get/count`, async (req, res) =>{
 router.delete('/:id', (req, res) =>{
     User.findByIdAndDelete(req.params.id).then(user =>{
         if(user){
-            return res.status(200).json({success: true, message: 'The product has been deleted'})
+            return res.status(200).json({success: true, message: 'The user has been deleted'})
         }
         else{
-            return res.status(404).json({success: false, message: 'Product not found'})
+            return res.status(404).json({success: false, message: 'User not found'})
         }
     }).catch(err =>{ // To catch errors
         return res.status(400).json({success: false, error: err})

@@ -31,6 +31,7 @@ router.get(`/:id`, async (req, res) =>{
     }
 })
 
+// create new order API
 router.post(`/`, async (req, res) =>{
     const orderItemsIds = await Promise.all(req.body.orderItems.map(async orderItem =>{ // promise.all() - to prevent orderItems from bringing an empty array
         let newOrderItem = new OrderItems({
@@ -99,5 +100,39 @@ router.delete(`/:id`, async(req, res) =>{
         res.status(200).json({success: true, message: 'Order deleted successfully'})
     }
 })
+
+// Get total eshop sales
+router.get('/get/totalsales', async(req, res) =>{
+    const totalSales = await Order.aggregate([
+        { $group: { _id: null, totalsales: { $sum: '$totalPrice' } } }  // getting total sales using mongoose specifications
+    ])
+    if(!totalSales){
+        return res.status(400).send('The order sales cannot be genrated')
+    }
+    res.send({totalsales: totalSales.pop().totalsales})
+})
+
+// Get toal order counts i.e number of orders
+router.get('/get/count', async(req, res) =>{
+    const ordersCount = await Order.countDocuments()
+    if(!ordersCount){
+        res.status(500).json({success: false})
+    }
+    res.send({ordersCount: ordersCount})
+})
+
+// Get list of orders i.e orders history by a specific user
+router.get('/get/userorders/:userid', async(req, res) =>{
+    const userOrderList = await Order.find({user: req.params.userid}).populate({
+        path: 'orderItems', 
+        populate: {path: 'product', populate: 'category'}
+    }).sort({'dateOrdered': -1})
+
+    if(!userOrderList){
+        res.status(500).json({success: false})
+    }
+    res.send(userOrderList)
+})
+
 
 module.exports = router

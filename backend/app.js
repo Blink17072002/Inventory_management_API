@@ -30,12 +30,15 @@ const categoriesRoutes = require('./routes/categories')
 const productsRoutes = require('./routes/products')
 const usersRoutes = require('./routes/users')
 const ordersRoutes = require('./routes/orders')
+const variationsRoutes = require('./routes/variations')
+
 // const authJwt = require("./helpers/jwt")
 
 app.use(`${api}/categories`, categoriesRoutes) 
 app.use(`${api}/products`, productsRoutes)
 app.use(`${api}/users`, usersRoutes)
 app.use(`${api}/orders`, ordersRoutes)
+app.use(`${api}/variations`, variationsRoutes)
 
 // app.post(`${api}/products`, (req, res) =>{
 //     const newProduct = req.body
