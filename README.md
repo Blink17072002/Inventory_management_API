@@ -12,7 +12,6 @@ This project is a backend API for a sales inventory system built with Node.js, E
 - **Sales Tracking**: View total sales, order history, and product statistics.
 
 ## Project Structure
-The project follows the standard MVC architecture:
 
 ├── backend
   ├── models
@@ -40,7 +39,7 @@ The project follows the standard MVC architecture:
 
 1. Clone the repository:
 
-```bash``
+```bash```
 git clone https://github.com/Blink17072002/Inventory_management_API.git
 cd backend
 
@@ -61,44 +60,44 @@ The server will run on http://localhost:3000.
 
 ### API Endpoints
 - Categories
-  GET /api/v1/categories - Get list of categories
-  GET /api/v1/categories/:id - Get category by ID
-  POST /api/v1/categories - Create a new category
-  PUT /api/v1/categories/:id - Update a category
-  DELETE /api/v1/categories/:id - Delete a category
+  GET /api/v1/categories - Get list of categories,
+  GET /api/v1/categories/:id - Get category by ID,
+  POST /api/v1/categories - Create a new category,
+  PUT /api/v1/categories/:id - Update a category,
+  DELETE /api/v1/categories/:id - Delete a category,
   
 - Products
-  GET /api/v1/products - Get list of products (supports filtering by category)
-  GET /api/v1/products/:id - Get product details by ID
-  POST /api/v1/products - Create a new product
-  PUT /api/v1/products/:id - Update a product
-  PUT /api/v1/products/:id/hide - Hide a product from users
-  POST /api/v1/products/:id/purchase - Purchase a product and update stock
+  GET /api/v1/products - Get list of products (supports filtering by category),
+  GET /api/v1/products/:id - Get product details by ID,
+  POST /api/v1/products - Create a new product,
+  PUT /api/v1/products/:id - Update a product,
+  PUT /api/v1/products/:id/hide - Hide a product from users,
+  POST /api/v1/products/:id/purchase - Purchase a product and update stock,
   DELETE /api/v1/products/:id - Delete a product
   
 - Orders
-  GET /api/v1/orders - Get list of all orders
-  GET /api/v1/orders/:id - Get order details by ID
-  POST /api/v1/orders - Create a new order
-  PUT /api/v1/orders/:id - Update order status
-  DELETE /api/v1/orders/:id - Delete an order
-  GET /api/v1/orders/get/totalsales - Get total sales
-  GET /api/v1/orders/get/count - Get the number of orders
+  GET /api/v1/orders - Get list of all orders,
+  GET /api/v1/orders/:id - Get order details by ID,
+  POST /api/v1/orders - Create a new order,
+  PUT /api/v1/orders/:id - Update order status,
+  DELETE /api/v1/orders/:id - Delete an order,
+  GET /api/v1/orders/get/totalsales - Get total sales,
+  GET /api/v1/orders/get/count - Get the number of orders,
   GET /api/v1/orders/get/userorders/:userid - Get order history for a user
   
 - Users
-  GET /api/v1/users - Get list of users (admin only)
-  GET /api/v1/users/:id - Get user details by ID
-  POST /api/v1/users - Register a new user
-  POST /api/v1/users/login - Log in a user
-  GET /api/v1/users/get/count - Get the number of users
+  GET /api/v1/users - Get list of users (admin only),
+  GET /api/v1/users/:id - Get user details by ID,
+  POST /api/v1/users - Register a new user,
+  POST /api/v1/users/login - Log in a user,
+  GET /api/v1/users/get/count - Get the number of users,
   DELETE /api/v1/users/:id - Delete a user
   
 - Variations
-  GET /api/v1/variations - Get list of variations
-  GET /api/v1/variations/:id - Get variation by ID
-  POST /api/v1/variations - Create a new variation
-  PUT /api/v1/variations/:id - Update a variation
+  GET /api/v1/variations - Get list of variations,
+  GET /api/v1/variations/:id - Get variation by ID,
+  POST /api/v1/variations - Create a new variation,
+  PUT /api/v1/variations/:id - Update a variation,
   DELETE /api/v1/variations/:id - Delete a variation
   
 # Security
