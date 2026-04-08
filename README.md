@@ -3,7 +3,7 @@
 This project is a backend API for a shoe sales inventory system built with Node.js, Express, and MongoDB. It provides endpoints for managing products, categories, orders, users, and product variations in an e-commerce application. The system is designed for both admin and client usage.
 
 ## Video Demonstration
-[![Watch the video]
+Watch the video: 
 https://www.youtube.com/watch?v=9EfJDiE6nEQ
 
 ## Features
