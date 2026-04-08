@@ -1,7 +1,7 @@
 const { expressjwt } = require('express-jwt')
 
 function authJwt(){  // protecting the apis, making sure no one can use them without authentication
-    const secret = process.env.secret
+    const secret = process.env.SECRET
     const api = process.env.API_URL
 
     return expressjwt({

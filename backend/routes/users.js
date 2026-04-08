@@ -72,7 +72,7 @@ router.post('/register', async(req, res) =>{
 // Login existing user
 router.post('/login', async(req, res) =>{
     const user = await User.findOne({email: req.body.email})//.select('-passwordHash')
-    const secret = process.env.secret  // secret in environment variables
+    const secret = process.env.SECRET  // secret in environment variables
     if(!user){
         res.status(500).send('The user not found')
     }
