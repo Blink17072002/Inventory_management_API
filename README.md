@@ -1,5 +1,11 @@
 # Sales Inventory Backend API
 
+**Live API Endpoint:** 
+https://inventory-management-api-six.vercel.app/api/v1
+
+## Video Demonstration
+https://www.youtube.com/watch?v=9EfJDiE6nEQ
+
 This project is a backend API for a shoe sales inventory system built with Node.js, Express, and MongoDB. It provides endpoints for managing products, categories, orders, users, and product variations in an e-commerce application. The system is designed for both admin and client usage.
 
 ## Video Demonstration
